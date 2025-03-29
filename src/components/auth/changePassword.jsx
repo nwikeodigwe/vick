@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "react-router";
-import LoginOptions from "./options";
 import Input from "../common/input";
 import Button from "../common/button";
 
-const Reset = () => {
+const ChangePassword = () => {
   return (
     <div className="flex flex-col max-w-[400px] mx-auto mt-24 min-h-[65vh]">
       <h1 className="title text-center text-4xl leading-6 tracking-wider mb-10">
@@ -13,16 +12,31 @@ const Reset = () => {
       <form action="" className="flex flex-col gap-5">
         <fieldset className="flex flex-col gap-2 border-1 border-dark-200 rounded-sm p-0 relative">
           <label
-            htmlFor="email"
+            htmlFor="password"
             className="absolute -top-[12px] bg-dark-900 p-1 left-4 z-10 text-sm text-dark-200"
           >
-            Email address
+            New password
           </label>
           <Input
-            type="email"
-            name="email"
-            id="email"
-            placeholder="Enter your email"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter password"
+            className="border-none p-4 focus:outline-none text-sm"
+          />
+        </fieldset>
+        <fieldset className="flex flex-col gap-2 border-1 border-dark-200 rounded-sm p-0 relative">
+          <label
+            htmlFor="confirm-password"
+            className="absolute -top-[12px] bg-dark-900 p-1 left-4 z-10 text-sm text-dark-200"
+          >
+            Confirm password
+          </label>
+          <Input
+            type="password"
+            name="confirm-password"
+            id="confirm-password"
+            placeholder="Confirm password"
             className="border-none p-4 focus:outline-none text-sm"
           />
         </fieldset>
@@ -41,4 +55,4 @@ const Reset = () => {
   );
 };
 
-export default Reset;
+export default ChangePassword;

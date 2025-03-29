@@ -9,3 +9,7 @@ header h1 {
 header a {
   @apply text-secondary-50 hover:text-secondary-400 transition duration-300 font-thin;
 }
+
+.login-options > h1 {
+  @apply text-center text-sm font-thin bg-dark-900 p-1 z-20 relative before:content-[''] before:h-[0.5px] before:absolute before:w-[180px] before:bg-dark-200 before:left-0 before:top-1/2 before:mr-2 after:content-[''] after:h-[0.5px] after:absolute after:w-[180px] after:bg-dark-200 after:right-0 after:top-1/2 after:ml-2;
+}

@@ -4,7 +4,7 @@ import AuthLayout from "./components/auth/layout";
 import Signin from "./components/auth/signin";
 import Signup from "./components/auth/signup";
 import Reset from "./components/auth/reset";
-import ResetToken from "./components/auth/resetToken";
+import ChangePassword from "./components/auth/changePassword";
 
 const Routes = () => {
   return (
@@ -15,7 +15,7 @@ const Routes = () => {
           <Route path="signup" element={<Signup />} />
           <Route path="reset">
             <Route index element={<Reset />} />
-            <Route path=":token" element={<ResetToken />} />
+            <Route path=":token" element={<ChangePassword />} />
           </Route>
         </Route>
       </Router>

@@ -60,3 +60,23 @@ body {
 .container {
   @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
 }
+
+a.link {
+  @apply text-primary hover:text-primary-600 transition-all duration-300;
+}
+
+input.input-primary {
+  @apply border-none p-4 focus:outline-none text-sm;
+}
+
+button.btn {
+  @apply p-5 rounded-sm w-full transition duration-200 ease-in-out relative;
+}
+
+button.btn-primary {
+  @apply bg-primary-900 hover:bg-primary-900/90;
+}
+
+button.btn-outline {
+  @apply text-dark-200 hover:bg-dark-800 border-1 border-dark-200 hover:border-dark-300;
+}
