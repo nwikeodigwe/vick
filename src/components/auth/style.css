@@ -1,0 +1,11 @@
+header {
+  @apply mx-auto flex items-center justify-between p-4 top-0 left-0 right-0 z-10;
+}
+
+header h1 {
+  @apply text-4xl font-viga text-dark uppercase font-bold text-primary;
+}
+
+header a {
+  @apply text-secondary-50 hover:text-secondary-400 transition duration-300 font-thin;
+}

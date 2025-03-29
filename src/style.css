@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Viga&display=swap");
+@import "tailwindcss";
+@import "./components/common/style.css";
+@import "./components/auth/style.css";
+
+@theme {
+  --color-primary: #b7dc33;
+  --color-primary-900: #7d9623;
+  --color-primary-800: #89a526;
+  --color-primary-700: #97b62a;
+  --color-primary-600: #a6c82e;
+  --color-primary-500: #b7dc33;
+  --color-primary-400: #bedf46;
+  --color-primary-300: #c4e257;
+  --color-primary-200: #c9e566;
+  --color-primary-100: #cee774;
+  --color-primary-50: #d2e981;
+  --color-secondary: #efca44;
+  --color-secondary-900: #afa170;
+  --color-secondary-800: #c0b17b;
+  --color-secondary-700: #d3c387;
+  --color-secondary-600: #e8d695;
+  --color-secondary-500: #ffeba4;
+  --color-secondary-400: #ffedac;
+  --color-secondary-300: #ffefb4;
+  --color-secondary-200: #fff0bb;
+  --color-secondary-100: #fff1c1;
+  --color-secondary-50: #fff2c7;
+  --color-dark: #292928;
+  --color-dark-900: #1d1d1c;
+  --color-dark-800: #20201f;
+  --color-dark-700: #232322;
+  --color-dark-600: #262625;
+  --color-dark-500: #292928;
+  --color-dark-400: #3c3c3c;
+  --color-dark-300: #4e4e4e;
+  --color-dark-200: #5e5e5e;
+  --color-dark-100: #6d6d6d;
+  --color-dark-50: #7a7a7a;
+  --font-viga: "Viga", sans-serif;
+  --font-roboto: "Roboto Flex", sans-serif;
+}
+
+:root {
+  @apply leading-4 font-[300] tracking-normal;
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply min-h-screen relative bg-dark-900 font-roboto text-secondary-50 font-[300]  leading-6 tracking-normal overflow-x-hidden;
+}
+
+.title {
+  @apply font-viga leading-6 tracking-wider;
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+}
