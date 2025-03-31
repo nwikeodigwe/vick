@@ -1,0 +1,19 @@
+input.input-primary {
+  @apply border-none p-4 focus:outline-none text-sm;
+}
+
+.btn {
+  @apply p-5 cursor-pointer rounded-sm transition duration-200 ease-in-out relative;
+}
+
+.btn-full {
+  @apply w-full;
+}
+
+.btn-primary {
+  @apply bg-primary-900 hover:bg-primary-900/90;
+}
+
+.btn-outline {
+  @apply text-dark-200 hover:bg-dark-800 border-1 border-dark-200 hover:border-dark-300;
+}

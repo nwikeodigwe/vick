@@ -1,16 +1,41 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { useForm, Controller } from "react-hook-form";
 import LoginOptions from "./options";
-import Input from "../common/input";
-import Button from "../common/button";
+import { useDispatch } from "react-redux";
+import { setAuthToken, setRefreshToken } from "../../features/auth";
+import { useSignupUserMutation } from "../../services/auth";
+import { Input, Button, Error } from "../common";
 
 const Signup = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [error, setError] = React.useState({ error: false, message: "" });
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+  } = useForm({ defaultValues: { email: "", password: "" } });
+
+  const [signupUser] = useSignupUserMutation();
+
+  const onSubmit = async (data) => {
+    const response = await signupUser(data);
+    if ("error" in response) {
+      setError({ status: true, message: response.error.data.description });
+    } else {
+      dispatch(setAuthToken(response.data.token));
+      dispatch(setRefreshToken(response.data.refreshToken));
+      navigate("/dashboard");
+    }
+  };
   return (
     <div className="flex flex-col max-w-[400px] mx-auto mt-24 min-h-[65vh]">
       <h1 className="title font-viga text-center text-4xl leading-6 tracking-wider mb-10">
         Create an account
       </h1>
-      <form action="" className="flex flex-col gap-5">
+      <form action={handleSubmit(onSubmit)} className="flex flex-col">
+        {error.status && <Error className="mb-5">{error.message}</Error>}
         <fieldset className="flex flex-col gap-2 border-1 border-dark-200 rounded-sm p-0 relative">
           <label
             htmlFor="email"
@@ -18,31 +43,61 @@ const Signup = () => {
           >
             Email address
           </label>
-          <Input
-            type="email"
+          <Controller
+            control={control}
             name="email"
-            id="email"
-            placeholder="Enter your email"
+            rules={{
+              required: "Email is required",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "Please enter a valid email",
+              },
+            }}
+            render={({ field }) => (
+              <Input
+                {...field}
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+                aria-invalid={errors.email ? "true" : "false"}
+                disabled={isSubmitting}
+              />
+            )}
           />
         </fieldset>
-        <fieldset className="flex flex-col gap-2 border-1 border-dark-200 rounded-sm p-0 relative">
+        {errors.email && (
+          <span role="alert" className="text-xs font-thin text-red-700/50 mt-2">
+            {errors.email.message}
+          </span>
+        )}
+        <fieldset className="flex flex-col gap-2 border-1 border-dark-200 rounded-sm p-0 relative mt-5">
           <label
             htmlFor="password"
             className="absolute -top-[12px] bg-dark-900 p-1 left-4 z-10 text-sm text-dark-200"
           >
             Password
           </label>
-          <Input
-            type="password"
+          <Controller
+            control={control}
             name="password"
-            id="password"
-            placeholder="Enter your password"
-            className="border-none p-4 focus:outline-none text-sm"
+            rules={{
+              required: "Password is required",
+            }}
+            render={({ field }) => (
+              <Input
+                {...field}
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                aria-invalid={errors.firstName ? "true" : "false"}
+                disabled={isSubmitting}
+              />
+            )}
           />
         </fieldset>
-        <fieldset>
-          <Button variant="primary" type="submit">
-            Sign up
+        <fieldset className="mt-5">
+          <Button variant="primary" type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Signing up..." : "Sign up"}
           </Button>
         </fieldset>
       </form>

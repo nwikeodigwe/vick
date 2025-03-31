@@ -4,7 +4,9 @@ import AuthLayout from "./components/auth/layout";
 import Signin from "./components/auth/signin";
 import Signup from "./components/auth/signup";
 import Reset from "./components/auth/reset";
-import ChangePassword from "./components/auth/changePassword";
+import ChangePassword from "./components/auth/change";
+import DashboardLayout from "./components/dashborad/layout";
+import Feed from "./components/dashborad/feed";
 
 const Routes = () => {
   return (
@@ -17,6 +19,9 @@ const Routes = () => {
             <Route index element={<Reset />} />
             <Route path=":token" element={<ChangePassword />} />
           </Route>
+        </Route>
+        <Route path="dashboard" element={<DashboardLayout />}>
+          <Route index element={<Feed />} />
         </Route>
       </Router>
     </>
