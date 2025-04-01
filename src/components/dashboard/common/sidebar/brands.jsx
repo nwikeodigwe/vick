@@ -8,17 +8,17 @@ import {
 import { Link } from "react-router";
 import { IoChevronDownOutline } from "react-icons/io5";
 
-const Resources = () => {
+const Brands = () => {
   return (
     <div className="flex flex-col gap-2 py-2 border-t border-dark-200/20">
       <Dropdown open={true}>
-        <DropdownTrigger className="flex w-full items-center justify-between opacity-50 hover:bg-dark-200/20 rounded-sm px-4 py-3 cursor-pointer transition-all duration-300">
+        <DropdownTrigger
+          indicator={true}
+          className="w-full opacity-50 hover:bg-dark-200/20 rounded-sm px-4 py-3 cursor-pointer transition-all duration-300"
+        >
           <h2 className="text-sm font-riteous font-[200] uppercase tracking-wider">
-            Resources
+            Brands
           </h2>
-          <span>
-            <IoChevronDownOutline className="text-xl" />
-          </span>
         </DropdownTrigger>
         <DropdownContent className="flex flex-col gap-0 text-sm font-[400] opacity-70">
           <DropdownItem>
@@ -54,4 +54,4 @@ const Resources = () => {
   );
 };
 
-export default Resources;
+export default Brands;

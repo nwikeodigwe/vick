@@ -8,9 +8,10 @@ import { TfiBarChart } from "react-icons/tfi";
 import Brands from "./brands";
 import Recent from "./recent";
 import Resources from "./resources";
+
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const openclass = !isOpen && "hidden";
+  const [isOpen, setIsOpen] = React.useState(true);
+  const openclass = !isOpen ? "hidden" : "";
   return (
     <div
       className={`group flex px-5 h-screen  overflow-y-scroll border-1 border-dark-200/20 transform-flat transition-all duration-300 ${
@@ -54,13 +55,13 @@ const Sidebar = () => {
       >
         <div
           onClick={() => setIsOpen((prev) => !prev)}
-          className="absolute top-0 w-full flex items-center justify-between cursor-pointer hover:bg-dark-200/20 rounded-sm px-4 py-3 transition-all duration-300"
+          className="absolute top-0 w-full flex items-center justify-between cursor-pointer hover:bg-dark-200/20 rounded-sm px-3 py-3 transition-all duration-300"
         >
           <h2 className="text-sm font-riteous font-[200] uppercase tracking-wider opacity-50">
             Menu
           </h2>
           <span>
-            <GoSidebarExpand className="text-2xl" />
+            <GoSidebarExpand className="text-xl" />
           </span>
         </div>
         <ul className="flex flex-col gap-0 text-sm font-[400] opacity-70 mt-12">
@@ -78,7 +79,7 @@ const Sidebar = () => {
               to="/dashboard/popular"
               className="flex items-center gap-3 px-3 py-3  hover:bg-dark-200/20 rounded-sm"
             >
-              <PiChartLineUp className="text-2xl" />
+              <PiChartLineUp className="text-xl" />
               <span className={openclass}>Trending</span>
             </Link>
           </li>
@@ -87,7 +88,7 @@ const Sidebar = () => {
               to="/dashboard/explore"
               className="flex items-center gap-3 px-3 py-3  hover:bg-dark-200/20 rounded-sm"
             >
-              <MdOutlineTravelExplore className="text-2xl" />
+              <MdOutlineTravelExplore className="text-xl" />
               <span className={openclass}>Explore</span>
             </Link>
           </li>
@@ -96,7 +97,7 @@ const Sidebar = () => {
               to="/dashboard/all"
               className="flex items-center gap-3 px-3 py-3  hover:bg-dark-200/20 rounded-sm"
             >
-              <TfiBarChart className="text-2xl" />
+              <TfiBarChart className="text-xl" />
               <span className={openclass}>All</span>
             </Link>
           </li>

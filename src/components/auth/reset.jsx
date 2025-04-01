@@ -72,7 +72,11 @@ const Reset = () => {
           </span>
         )}
         <fieldset className="mt-5">
-          <Button type="submit" variant="primary" className="text-white">
+          <Button
+            type="submit"
+            variant="primary"
+            className="text-white btn-full"
+          >
             Reset password
           </Button>
         </fieldset>

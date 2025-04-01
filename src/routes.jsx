@@ -5,8 +5,8 @@ import Signin from "./components/auth/signin";
 import Signup from "./components/auth/signup";
 import Reset from "./components/auth/reset";
 import ChangePassword from "./components/auth/change";
-import DashboardLayout from "./components/dashborad/layout";
-import Feed from "./components/dashborad/feed";
+import DashboardLayout from "./components/dashboard";
+import Feed from "./components/dashboard/feed";
 
 const Routes = () => {
   return (

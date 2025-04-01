@@ -111,7 +111,7 @@ const Signin = () => {
             type="submit"
             disabled={isSubmitting}
             variant="primary"
-            className="text-white"
+            className="btn-full text-white"
           >
             {isSubmitting ? "Signing in..." : "Sign in"}
           </Button>

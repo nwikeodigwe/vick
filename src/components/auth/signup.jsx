@@ -96,7 +96,12 @@ const Signup = () => {
           />
         </fieldset>
         <fieldset className="mt-5">
-          <Button variant="primary" type="submit" disabled={isSubmitting}>
+          <Button
+            variant="primary"
+            type="submit"
+            disabled={isSubmitting}
+            className="btn-full"
+          >
             {isSubmitting ? "Signing up..." : "Sign up"}
           </Button>
         </fieldset>

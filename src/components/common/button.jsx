@@ -3,8 +3,8 @@ import React from "react";
 const Button = ({ children, ...props }) => {
   const { variant } = props;
   const variantClasses = {
-    primary: "btnbtn-primary",
-    outline: "btnbtn-outline",
+    primary: "btn btn-primary",
+    outline: "btn btn-outline",
   };
 
   const buttonClass = variant ? variantClasses[variant] : "";
