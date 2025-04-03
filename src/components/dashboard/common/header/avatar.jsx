@@ -6,9 +6,16 @@ import {
   DropdownContent,
   DropdownItem,
   DropdownTrigger,
-} from "../../../common";
+} from "@/components/common";
+import UserContext from "@/context/userContext";
+import AvatarSkeleton from "./avatarSkeleton";
+import Logout from "../logout";
 
 const Avatar = () => {
+  const { data, isLoading } = React.useContext(UserContext);
+
+  if (isLoading) return <AvatarSkeleton />;
+
   return (
     <Dropdown auto={true}>
       <DropdownTrigger className="flex items-center gap-4 bg-dark-800 rounded-2xl p-[2px] hover:bg-dark-700 transition-all duration-300">
@@ -24,15 +31,15 @@ const Avatar = () => {
         <DropdownItem className="flex items-center gap-3 py-2 px-5">
           <span className="p-5 rounded-2xl bg-primary"></span>
           <div className="flex flex-col">
-            <h4>View Profile</h4>
-            <p className="text-xs opacity-50">v/Ugoslavia-91</p>
+            <Link to="/dashboard/profile">View Profile</Link>
+            <p className="text-xs opacity-50">v/{data.user.name}</p>
           </div>
         </DropdownItem>
         <DropdownItem className="flex items-center gap-3 py-2 px-5">
-          <Link to="/dashboard/profile">Edit avatar</Link>
+          <Link to="/dashboard/avatar">Edit avatar</Link>
         </DropdownItem>
         <DropdownItem className="flex items-center gap-3 py-2 px-5">
-          <Link to="/dashboard/logout">Logout</Link>
+          <Logout className="font-[100]">Logout</Logout>
         </DropdownItem>
       </DropdownContent>
     </Dropdown>

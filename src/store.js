@@ -4,7 +4,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import rootReducer from "./reducer";
 import { authApi } from "./services/auth";
-
+import { userApi } from "./services/userApi";
 const persistConfig = {
   key: "root",
   storage,
@@ -20,7 +20,9 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: ["persist/PERSIST", "persist/REHYDRATE"],
       },
-    }).concat(authApi.middleware),
+    })
+      .concat(authApi.middleware)
+      .concat(userApi.middleware),
 });
 
 setupListeners(store.dispatch);

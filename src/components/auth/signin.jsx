@@ -2,12 +2,10 @@ import React from "react";
 import { Link, useNavigate } from "react-router";
 import { useForm, Controller } from "react-hook-form";
 import LoginOptions from "./options";
-import Input from "../common/input";
-import Button from "../common/button";
+import { Input, Button, Error } from "../common";
 import { useSigninUserMutation } from "../../services/auth";
-import Error from "../common/error";
 import { useDispatch } from "react-redux";
-import { setAuthToken, setRefreshToken } from "../../features/auth";
+import { setAuthToken, setRefreshToken } from "../../features/auth/authSlice";
 
 const Signin = () => {
   const dispatch = useDispatch();
@@ -26,8 +24,8 @@ const Signin = () => {
     if ("error" in response) {
       setError({ status: true, message: response.error.data.description });
     } else {
-      dispatch(setAuthToken(response.data.token));
-      dispatch(setRefreshToken(response.data.refreshToken));
+      dispatch(setAuthToken(response.data.login.token));
+      dispatch(setRefreshToken(response.data.login.refresh));
       navigate("/dashboard");
     }
   };

@@ -10,14 +10,12 @@ const Dropdown = ({ children, className, open, auto = false }) => {
   const dropdownRef = React.useRef(null);
 
   React.useEffect(() => {
-    console.log("auto", auto);
     const handleClickOutside = (event) => {
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target) &&
         auto
       ) {
-        console.log("clicked outside");
         setIsOpen(false);
       }
     };

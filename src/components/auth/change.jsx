@@ -4,7 +4,7 @@ import { useForm, Controller } from "react-hook-form";
 import { useChangePasswordMutation } from "../../services/auth";
 import { Input, Button, Error } from "../common";
 import { useDispatch } from "react-redux";
-import { setAuthToken, setRefreshToken } from "../../features/auth";
+import { setAuthToken, setRefreshToken } from "../../features/auth/authSlice";
 
 const ChangePassword = () => {
   const { token } = useParams();

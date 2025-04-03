@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router";
 import { useForm, Controller } from "react-hook-form";
 import LoginOptions from "./options";
 import { useDispatch } from "react-redux";
-import { setAuthToken, setRefreshToken } from "../../features/auth";
+import { setAuthToken, setRefreshToken } from "../../features/auth/authSlice";
 import { useSignupUserMutation } from "../../services/auth";
 import { Input, Button, Error } from "../common";
 
