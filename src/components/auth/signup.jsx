@@ -4,7 +4,7 @@ import { useForm, Controller } from "react-hook-form";
 import LoginOptions from "./options";
 import { useDispatch } from "react-redux";
 import { setAuthToken, setRefreshToken } from "../../features/auth/authSlice";
-import { useSignupUserMutation } from "../../services/auth";
+import { useSignupUserMutation } from "../../services/authApi";
 import { Input, Button, Error } from "../common";
 
 const Signup = () => {

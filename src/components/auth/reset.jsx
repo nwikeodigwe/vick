@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 import { useForm, Controller } from "react-hook-form";
-import { useResetPasswordMutation } from "../../services/auth";
+import { useResetPasswordMutation } from "../../services/authApi";
 import { Input, Button, Error } from "../common";
 import ResetConfirm from "./resetConfirm";
 

@@ -3,8 +3,9 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import rootReducer from "./reducer";
-import { authApi } from "./services/auth";
+import { authApi } from "./services/authApi";
 import { userApi } from "./services/userApi";
+import { authMiddleware } from "@/middleware/authMiddleware";
 const persistConfig = {
   key: "root",
   storage,
@@ -22,7 +23,8 @@ export const store = configureStore({
       },
     })
       .concat(authApi.middleware)
-      .concat(userApi.middleware),
+      .concat(userApi.middleware)
+      .concat(authMiddleware),
 });
 
 setupListeners(store.dispatch);

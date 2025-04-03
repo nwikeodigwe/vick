@@ -12,6 +12,7 @@ export default defineConfig({
       "@context": "/src/context",
       "@features": "/src/features",
       "@services": "/src/services",
+      "@middleware": "/src/middleware",
     },
   },
 });
